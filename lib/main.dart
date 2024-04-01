@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'Home.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+
+    ),
+  );
 }
