@@ -2,21 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 
-class Home extends StatelessWidget {
+
+class Home extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: VideoPlayerScreen(),
-    );
-  }
+  _HomeState createState() => _HomeState();
 }
 
-class VideoPlayerScreen extends StatefulWidget {
-  @override
-  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
-}
-
-class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+class _HomeState extends State<Home> {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
 
@@ -69,11 +61,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         onPressed: () {
           setState(() {
             // Se o vídeo estiver pausado, inicie a reprodução. Se estiver reproduzindo, pause.
-            if (_controller.value.isPlaying) {
-              _controller.pause();
-            } else {
-              _controller.play();
-            }
+            _controller.value.isPlaying ?  _controller.pause() : _controller.play();
           });
         },
         child: Icon(
